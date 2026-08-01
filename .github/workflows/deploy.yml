@@ -29,11 +29,10 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      # Requires Pages to be enabled with "GitHub Actions" as the source
+      # (Settings -> Pages). The workflow token isn't permitted to turn Pages
+      # on itself, so that's a one-time manual step.
       - uses: actions/configure-pages@v5
-        with:
-          # Turn Pages on for the repo if it isn't already, so the first
-          # deploy doesn't need a manual visit to Settings.
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

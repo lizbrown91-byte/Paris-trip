@@ -15,9 +15,12 @@ npm run preview  # serve the production build locally
 
 ## Deployment
 
-Every push to `main` triggers `.github/workflows/deploy.yml`, which builds the
-site and publishes `dist/` to GitHub Pages. Pages is configured with
-**Settings → Pages → Source: GitHub Actions**.
+Pushes trigger `.github/workflows/deploy.yml`, which builds the site and
+publishes `dist/` to GitHub Pages.
+
+This requires a one-time setup step: **Settings → Pages → Source: GitHub
+Actions**. The workflow's own token is not permitted to enable Pages, so it has
+to be switched on by hand before the first deploy can succeed.
 
 Because the site is served from a subpath (`/Paris-trip/`), `vite.config.js`
 sets `base: '/Paris-trip/'`. If the repository is ever renamed, that value has
