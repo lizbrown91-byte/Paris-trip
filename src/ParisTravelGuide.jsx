@@ -31,8 +31,8 @@ const FLIGHTS = {
     route: "CDG → ORD",
     date: "Monday, Oct 12, 2026",
     flightNumber: "AA 151",
-    depart: "7:40 AM (Paris time)",
-    arrive: "11:50 PM Paris time (4:50 PM Central, on landing)",
+    depart: "2:50 PM (Paris time)",
+    arrive: "4:50 PM (Chicago time)",
     confirmation: "",
   },
 };
