@@ -3,6 +3,7 @@ import { MapPin, Plane, Home, Key, Train, ExternalLink, Clock, Sun, Sunset, Stic
 // Imported so Vite fingerprints it and prefixes the site's base path — a bare
 // "/assets/..." string would 404, since the site is served from /Paris-trip/.
 import sacreCoeurTrain from "./assets/sacre-coeur-train.jpg";
+import disneylandCastle from "./assets/disneyland-paris-castle.jpg";
 
 /* ============================================================
    DATA LAYER — edit these objects to update the whole site
@@ -93,7 +94,7 @@ const ITINERARY = [
     morning: "Disney",
     afternoon: "Disney",
     notes: "",
-    image: null,
+    image: disneylandCastle,
   },
   {
     day: "Saturday",
