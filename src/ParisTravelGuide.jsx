@@ -117,7 +117,7 @@ const ITINERARY = [
     date: "Oct 12",
     morning: "Pack up, depart for CDG",
     afternoon: "Flight home",
-    notes: "Leave Airbnb by 7:30 AM for airport.",
+    notes: "Leave Airbnb by 11:30 AM for airport.",
     image: null,
   },
 ];
