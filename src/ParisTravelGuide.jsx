@@ -77,7 +77,7 @@ const ITINERARY = [
     date: "Oct 7",
     morning: "Eiffel Tower & Champ de Mars",
     afternoon: "Perry & Karen: Catacombs",
-    notes: "Eiffel Tower & Catacombs tickets booked in advance. Kids nap during Catacombs. Maybe La Grande Épicerie together after.",
+    notes: "Eiffel Tower & Catacombs tickets booked in advance. Maybe La Grande Épicerie together after.",
     image: "https://images.unsplash.com/photo-1616769689599-5b281aa03daf?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -85,7 +85,7 @@ const ITINERARY = [
     date: "Oct 8",
     morning: "Luxembourg Gardens",
     afternoon: "Musée de l'Orangerie + Tuileries Garden",
-    notes: "Museum tickets booked in advance. Sainte-Chapelle needs a paid timed-entry ticket too — book ahead, 30-min entry windows. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina, Rue Mouffetard.",
+    notes: "Museum tickets booked in advance. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina, Rue Mouffetard.",
     image: "https://images.unsplash.com/photo-1756239502220-4679325de757?q=80&w=1200&auto=format&fit=crop",
   },
   {
