@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { MapPin, Plane, Home, Key, Train, ExternalLink, Clock, Sun, Sunset, StickyNote, ChevronRight } from "lucide-react";
+import { MapPin, Plane, Home, Key, Train, ExternalLink, Clock, Utensils, Sun, Sunset, StickyNote, ChevronRight } from "lucide-react";
 
 /* ============================================================
    DATA LAYER — edit these objects to update the whole site
@@ -47,6 +47,41 @@ const QUICK_LINKS = [
   { label: "Paris Metro Map", url: "https://www.ratp.fr" },
 ];
 
+// Highly rated (4.5★+), kid-friendly, walking distance from the Airbnb.
+// No tasting-menu places.
+const RESTAURANTS = [
+  {
+    name: "La Charrette à Crêpes",
+    rating: "5.0",
+    note: "Sweet and savoury galettes, quick and easy with kids.",
+    address: "86 Rue Saint-Dominique",
+  },
+  {
+    name: "Vendémiaire",
+    rating: "4.8",
+    note: "Warm neighbourhood bistro doing classic French plates.",
+    address: "54 Bd de la Tour-Maubourg",
+  },
+  {
+    name: "Kozy École Militaire",
+    rating: "4.9",
+    note: "All-day café — good for a relaxed breakfast or lunch.",
+    address: "55 Rue Cler",
+  },
+  {
+    name: "Gusto Italia Amélie",
+    rating: "4.7",
+    note: "Fresh pasta and pizza, a reliable crowd-pleaser.",
+    address: "11 Rue Amélie",
+  },
+  {
+    name: "Milagro",
+    rating: "4.8",
+    note: "Relaxed spot with a varied menu and friendly service.",
+    address: "85 Av. Bosquet",
+  },
+];
+
 const ITINERARY = [
   {
     day: "Tuesday",
@@ -61,15 +96,15 @@ const ITINERARY = [
     date: "Oct 7",
     morning: "Eiffel Tower & Champ de Mars",
     afternoon: "Catacombs",
-    notes: "",
+    notes: "Book Eiffel Tower & Catacombs tickets in advance.",
     image: "https://images.unsplash.com/photo-1619794578892-cbdd3ff81c95?q=80&w=1200&auto=format&fit=crop",
   },
   {
     day: "Thursday",
     date: "Oct 8",
     morning: "Luxembourg Gardens",
-    afternoon: "Museum + playground",
-    notes: "Getting around by bus. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina.",
+    afternoon: "Musée de l'Orangerie + Tuileries Garden",
+    notes: "Book museum tickets in advance. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina.",
     image: "https://images.unsplash.com/photo-1756239502220-4679325de757?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -83,9 +118,9 @@ const ITINERARY = [
   {
     day: "Saturday",
     date: "Oct 10",
-    morning: "Flea market",
-    afternoon: "Boat",
-    notes: "",
+    morning: "Explore Flea Markets",
+    afternoon: "6pm Seine River Cruise",
+    notes: "Top 2 to try: Marché aux Puces de Saint-Ouen (the largest & most famous) and Marché aux Puces de Vanves (smaller, more affordable, great for browsing).",
     image: "https://images.unsplash.com/photo-1567187155374-cd9135b1f247?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -600,6 +635,36 @@ function TravelDetailsPage() {
             </a>
           ))}
         </div>
+      </Card>
+
+      <Card style={{ marginTop: 22 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <Utensils size={18} color="#3A342C" strokeWidth={1.6} />
+          <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, color: "#3A342C", margin: 0 }}>
+            Restaurants
+          </h3>
+        </div>
+        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#8A8070", marginBottom: 4 }}>
+          Well-reviewed and kid-friendly, all within walking distance.
+        </div>
+        {RESTAURANTS.map((r) => (
+          <div key={r.name} style={{ padding: "14px 0", borderBottom: "1px solid #F0EAE0" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 10 }}>
+              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, color: "#3A342C" }}>
+                {r.name}
+              </div>
+              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#B4925A", flexShrink: 0 }}>
+                {r.rating} ★
+              </div>
+            </div>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: "#6B6255", marginTop: 4, lineHeight: 1.5 }}>
+              {r.note}
+            </div>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: "#B0A891", marginTop: 4 }}>
+              {r.address}
+            </div>
+          </div>
+        ))}
       </Card>
     </div>
   );
