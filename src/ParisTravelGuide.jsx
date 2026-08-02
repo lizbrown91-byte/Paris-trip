@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { MapPin, Plane, Home, Key, Train, ExternalLink, Clock, Utensils, Sun, Sunset, StickyNote, ChevronRight } from "lucide-react";
+import { MapPin, Plane, Home, Key, Train, ExternalLink, Clock, Sun, Sunset, StickyNote, ChevronRight } from "lucide-react";
 
 /* ============================================================
    DATA LAYER — edit these objects to update the whole site
@@ -15,71 +15,54 @@ const TRIP = {
 const FLIGHTS = {
   outbound: {
     label: "Outbound",
-    route: "JFK → CDG",
-    date: "Tuesday, Oct 6, 2026",
-    flightNumber: "AF 023",
-    depart: "6:55 PM",
-    arrive: "8:10 AM +1",
+    route: "ORD → CDG",
+    date: "Monday, Oct 5, 2026",
+    flightNumber: "UA 987",
+    depart: "6:10 PM",
+    arrive: "9:20 AM +1",
+    confirmation: "",
   },
   return: {
     label: "Return",
-    route: "CDG → JFK",
-    date: "Monday, Oct 12, 2026",
-    flightNumber: "AF 022",
-    depart: "10:35 AM",
-    arrive: "1:15 PM",
+    route: "CDG → ORD",
+    date: "TBD",
+    flightNumber: "TBD",
+    depart: "TBD",
+    arrive: "TBD",
+    confirmation: "",
   },
 };
 
+const SEATS = [
+  { name: "Elizabeth R. Bobulski", seat: "38A" },
+  { name: "Perry Bobulski", seat: "38B" },
+  { name: "Perry P. Bobulski III", seat: "39A" },
+  { name: "Campbell M. Bobulski", seat: "39B" },
+  { name: "Karen Bobulski", seat: "38C" },
+];
+
 const AIRBNB = {
-  address: "14 Rue Cler, 75007 Paris, France",
-  lat: 48.8566,
-  lng: 2.3053,
-  checkIn: "Available after 3:00 PM.",
-  checkOut: "Please leave by 11:00 AM. Leave keys on the kitchen counter.",
-  metro: "École Militaire (Line 8) — 4 min walk",
+  address: "1 Square de la Tour-Maubourg, Paris, Île-de-France 75007, France",
+  lat: 48.8595,
+  lng: 2.3078,
+  checkIn: "Please reach out to host for check-in instructions.",
+  checkOut: "TBD — confirm with host.",
+  metro: "École Militaire (Line 8) — nearby",
 };
+
+const RESTAURANTS = [
+  { name: "La Charrette à Crêpes", rating: "5.0", note: "Casual crêperie right on the corner.", address: "86 Rue Saint-Dominique" },
+  { name: "Vendémiaire", rating: "4.8", note: "Elegant French brasserie, ~5 min walk.", address: "54 Bd de la Tour-Maubourg" },
+  { name: "Kozy École Militaire", rating: "4.9", note: "All-day brunch & coffee.", address: "55 Rue Cler" },
+  { name: "Gusto Italia Amélie", rating: "4.7", note: "Cozy Italian, great pasta.", address: "11 Rue Amélie" },
+  { name: "Milagro", rating: "4.8", note: "~10 min walk, but worth it — repeatedly called the best meal in Paris.", address: "85 Av. Bosquet" },
+];
 
 const QUICK_LINKS = [
   { label: "Airbnb Listing", url: "https://airbnb.com" },
   { label: "Directions to Airbnb", url: "https://maps.google.com" },
   { label: "Airline Reservation", url: "https://airfrance.com" },
   { label: "Paris Metro Map", url: "https://www.ratp.fr" },
-];
-
-// Highly rated (4.5★+), kid-friendly, walking distance from the Airbnb.
-// No tasting-menu places.
-const RESTAURANTS = [
-  {
-    name: "La Charrette à Crêpes",
-    rating: "5.0",
-    note: "Sweet and savoury galettes, quick and easy with kids.",
-    address: "86 Rue Saint-Dominique",
-  },
-  {
-    name: "Vendémiaire",
-    rating: "4.8",
-    note: "Warm neighbourhood bistro doing classic French plates.",
-    address: "54 Bd de la Tour-Maubourg",
-  },
-  {
-    name: "Kozy École Militaire",
-    rating: "4.9",
-    note: "All-day café — good for a relaxed breakfast or lunch.",
-    address: "55 Rue Cler",
-  },
-  {
-    name: "Gusto Italia Amélie",
-    rating: "4.7",
-    note: "Fresh pasta and pizza, a reliable crowd-pleaser.",
-    address: "11 Rue Amélie",
-  },
-  {
-    name: "Milagro",
-    rating: "4.8",
-    note: "Relaxed spot with a varied menu and friendly service.",
-    address: "85 Av. Bosquet",
-  },
 ];
 
 const ITINERARY = [
@@ -97,7 +80,7 @@ const ITINERARY = [
     morning: "Eiffel Tower & Champ de Mars",
     afternoon: "Catacombs",
     notes: "Book Eiffel Tower & Catacombs tickets in advance.",
-    image: "https://images.unsplash.com/photo-1619794578892-cbdd3ff81c95?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1616769689599-5b281aa03daf?q=80&w=1200&auto=format&fit=crop",
   },
   {
     day: "Thursday",
@@ -113,7 +96,7 @@ const ITINERARY = [
     morning: "Disney",
     afternoon: "Disney",
     notes: "",
-    image: null,
+    image: "https://images.unsplash.com/photo-1742079741493-fd9845d816f9?q=80&w=1200&auto=format&fit=crop",
   },
   {
     day: "Saturday",
@@ -313,8 +296,8 @@ function HomePage({ setPage }) {
         }}
       >
         <img
-          src="https://images.unsplash.com/photo-1619794578892-cbdd3ff81c95?q=80&w=1600&auto=format&fit=crop"
-          alt="Eiffel Tower in daytime, Paris"
+          src="https://images.unsplash.com/photo-1551519642-3a26558be311?q=80&w=1600&auto=format&fit=crop"
+          alt="Paris in autumn, Eiffel Tower"
           style={{
             width: "100%",
             height: "100%",
@@ -571,6 +554,26 @@ function TravelDetailsPage() {
           </h3>
         </div>
         <FlightRow flight={FLIGHTS.outbound} />
+        <div style={{ padding: "14px 0", borderBottom: "1px solid #F0EAE0" }}>
+          <Eyebrow>Seats — Outbound</Eyebrow>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 22px" }}>
+            {SEATS.map((s) => (
+              <div
+                key={s.name}
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 13,
+                  color: "#3A342C",
+                  display: "flex",
+                  gap: 6,
+                }}
+              >
+                <span>{s.name}</span>
+                <span style={{ color: "#B4925A", fontWeight: 600 }}>{s.seat}</span>
+              </div>
+            ))}
+          </div>
+        </div>
         <div style={{ paddingBottom: 0 }}>
           <FlightRow flight={FLIGHTS.return} />
         </div>
@@ -607,6 +610,33 @@ function TravelDetailsPage() {
         <DetailRow icon={Train} label="Nearest Metro" value={AIRBNB.metro} />
       </Card>
 
+      <Card style={{ marginBottom: 22 }}>
+        <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, color: "#3A342C", margin: "0 0 4px 0" }}>
+          Restaurants
+        </h3>
+        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: "#B0A891", marginBottom: 14 }}>
+          Highly-rated spots within walking distance
+        </div>
+        {RESTAURANTS.map((r) => (
+          <div key={r.name} style={{ padding: "10px 0", borderBottom: "1px solid #F0EAE0" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "#3A342C", fontWeight: 500 }}>
+                {r.name}
+              </span>
+              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: "#B4925A", fontWeight: 600 }}>
+                {r.rating}★
+              </span>
+            </div>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: "#8A8070", marginTop: 2 }}>
+              {r.note}
+            </div>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11.5, color: "#B0A891", marginTop: 2 }}>
+              {r.address}
+            </div>
+          </div>
+        ))}
+      </Card>
+
       <Card>
         <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, color: "#3A342C", margin: "0 0 12px 0" }}>
           Quick Links
@@ -635,36 +665,6 @@ function TravelDetailsPage() {
             </a>
           ))}
         </div>
-      </Card>
-
-      <Card style={{ marginTop: 22 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-          <Utensils size={18} color="#3A342C" strokeWidth={1.6} />
-          <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 22, color: "#3A342C", margin: 0 }}>
-            Restaurants
-          </h3>
-        </div>
-        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#8A8070", marginBottom: 4 }}>
-          Well-reviewed and kid-friendly, all within walking distance.
-        </div>
-        {RESTAURANTS.map((r) => (
-          <div key={r.name} style={{ padding: "14px 0", borderBottom: "1px solid #F0EAE0" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 10 }}>
-              <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, color: "#3A342C" }}>
-                {r.name}
-              </div>
-              <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: "#B4925A", flexShrink: 0 }}>
-                {r.rating} ★
-              </div>
-            </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: "#6B6255", marginTop: 4, lineHeight: 1.5 }}>
-              {r.note}
-            </div>
-            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: "#B0A891", marginTop: 4 }}>
-              {r.address}
-            </div>
-          </div>
-        ))}
       </Card>
     </div>
   );
