@@ -1,6 +1,8 @@
 # Paris Trip
 
-A React + Vite single-page itinerary, deployed to GitHub Pages.
+A React + Vite travel guide for the Bobulski family's October 2026 Paris trip,
+deployed to GitHub Pages. Four sections — Home (with a countdown), Travel
+Details, Trip Itinerary, and Other Ideas (a filterable map of recommendations).
 
 **Live site:** https://lizbrown91-byte.github.io/Paris-trip/
 
@@ -28,6 +30,12 @@ to change to match.
 
 ## Content
 
-The itinerary lives in the `itinerary` array at the top of `src/App.jsx`. It is
-placeholder content — replace it (and the component around it) with the real
-thing; nothing else in the project depends on what's in that file.
+Everything the site displays lives in the data objects at the top of
+`src/ParisTravelGuide.jsx` — `TRIP`, `FLIGHTS`, `AIRBNB`, `QUICK_LINKS`,
+`ITINERARY`, and `RECOMMENDATIONS`. Editing those updates the whole site; no
+other file needs to change.
+
+This site is published publicly, so it deliberately carries no door code, Wi-Fi
+password, host phone number, or booking confirmation numbers. Keep those
+somewhere private — a shared note or a password manager — rather than adding
+them here.
