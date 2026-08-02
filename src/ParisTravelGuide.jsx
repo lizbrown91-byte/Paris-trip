@@ -59,7 +59,6 @@ const RESTAURANTS = [
 const QUICK_LINKS = [
   { label: "Airbnb Listing", url: "https://airbnb.com" },
   { label: "Directions to Airbnb", url: "https://maps.google.com" },
-  { label: "Airline Reservation", url: "https://airfrance.com" },
   { label: "Paris Metro Map", url: "https://www.ratp.fr" },
 ];
 
