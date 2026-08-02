@@ -36,14 +36,6 @@ const FLIGHTS = {
   },
 };
 
-const SEATS = [
-  { name: "Elizabeth R. Bobulski", seat: "38A" },
-  { name: "Perry Bobulski", seat: "38B" },
-  { name: "Perry P. Bobulski III", seat: "39A" },
-  { name: "Campbell M. Bobulski", seat: "39B" },
-  { name: "Karen Bobulski", seat: "38C" },
-];
-
 const AIRBNB = {
   address: "1 Square de la Tour-Maubourg, Paris, Île-de-France 75007, France",
   lat: 48.8595,
@@ -102,7 +94,7 @@ const ITINERARY = [
     morning: "Disney",
     afternoon: "Disney",
     notes: "",
-    image: "https://images.unsplash.com/photo-1742079741493-fd9845d816f9?q=80&w=1200&auto=format&fit=crop",
+    image: null,
   },
   {
     day: "Saturday",
@@ -560,26 +552,6 @@ function TravelDetailsPage() {
           </h3>
         </div>
         <FlightRow flight={FLIGHTS.outbound} />
-        <div style={{ padding: "14px 0", borderBottom: "1px solid #F0EAE0" }}>
-          <Eyebrow>Seats — Outbound</Eyebrow>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 22px" }}>
-            {SEATS.map((s) => (
-              <div
-                key={s.name}
-                style={{
-                  fontFamily: "'Inter', sans-serif",
-                  fontSize: 13,
-                  color: "#3A342C",
-                  display: "flex",
-                  gap: 6,
-                }}
-              >
-                <span>{s.name}</span>
-                <span style={{ color: "#B4925A", fontWeight: 600 }}>{s.seat}</span>
-              </div>
-            ))}
-          </div>
-        </div>
         <div style={{ paddingBottom: 0 }}>
           <FlightRow flight={FLIGHTS.return} />
         </div>
