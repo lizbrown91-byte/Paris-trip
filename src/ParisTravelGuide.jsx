@@ -76,8 +76,8 @@ const ITINERARY = [
     day: "Wednesday",
     date: "Oct 7",
     morning: "Eiffel Tower & Champ de Mars",
-    afternoon: "Catacombs",
-    notes: "Eiffel Tower & Catacombs tickets booked in advance.",
+    afternoon: "Perry & Karen: Catacombs",
+    notes: "Eiffel Tower & Catacombs tickets booked in advance. Kids nap during Catacombs. Maybe La Grande Épicerie together after.",
     image: "https://images.unsplash.com/photo-1616769689599-5b281aa03daf?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -85,7 +85,7 @@ const ITINERARY = [
     date: "Oct 8",
     morning: "Luxembourg Gardens",
     afternoon: "Musée de l'Orangerie + Tuileries Garden",
-    notes: "Museum tickets booked in advance. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina.",
+    notes: "Museum tickets booked in advance. Sainte-Chapelle needs a paid timed-entry ticket too — book ahead, 30-min entry windows. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina, Rue Mouffetard.",
     image: "https://images.unsplash.com/photo-1756239502220-4679325de757?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -132,6 +132,17 @@ const RECOMMENDATIONS = [
   { id: 7, name: "Parc Monceau", category: "Park", desc: "Romantic, quiet park with follies and shaded paths.", time: "1 hr", address: "35 Bd de Courcelles, 75008", lat: 48.8797, lng: 2.3086 },
   { id: 8, name: "Champ de Mars Playground", category: "Kids", desc: "Playground with a direct view of the Eiffel Tower.", time: "45 min", address: "2 Allée Adrienne Lecouvreur, 75007", lat: 48.8556, lng: 2.2986 },
   { id: 9, name: "Tuileries Playground", category: "Kids", desc: "Carousel and play area inside the Tuileries Garden.", time: "45 min", address: "Jardin des Tuileries, 75001", lat: 48.8635, lng: 2.3255 },
+  { id: 13, name: "Aquarium de Paris (Cinéaqua)", category: "Kids", desc: "Sharks and jellyfish tanks near Trocadéro — great rainy-day option.", time: "1.5 hr", address: "5 Av. Albert de Mun, 75116", lat: 48.8626, lng: 2.2877 },
+  { id: 14, name: "L'Oiseau de Paradis (Jellycat)", category: "Kids", desc: "Jellycat plush shop, close to the Airbnb.", time: "20 min", address: "211 Bd Saint-Germain, 75007", lat: 48.8556, lng: 2.3245 },
+  { id: 15, name: "Guignol Puppet Show", category: "Kids", desc: "Classic French puppet theater inside Luxembourg Gardens.", time: "30 min", address: "Jardin du Luxembourg, 75006", lat: 48.8469, lng: 2.3369 },
+  { id: 16, name: "Arc de Triomphe Rooftop", category: "Kids", desc: "City views from the top — note: lots of stairs, no elevator for strollers.", time: "45 min", address: "Place Charles de Gaulle, 75008", lat: 48.8738, lng: 2.2950 },
+  { id: 17, name: "Square Boucicaut", category: "Kids", desc: "Neighborhood playground + tiny hand-cranked carousel, very close to the Airbnb.", time: "45 min", address: "Bd Raspail / Rue de Sèvres, 75007", lat: 48.8497, lng: 2.3181 },
+  { id: 18, name: "Palais Royal Gardens", category: "Park", desc: "Elegant arcaded garden with the striped Buren columns — fun for kids to climb on.", time: "30 min", address: "Jardin du Palais-Royal, 75001", lat: 48.8638, lng: 2.3376 },
+  { id: 19, name: "Musée Rodin Garden", category: "Park", desc: "Sculpture garden, stroller-friendly, close to the Airbnb.", time: "45 min", address: "77 Rue de Varenne, 75007", lat: 48.8555, lng: 2.3153 },
+  { id: 20, name: "Marché aux Fleurs", category: "Shopping", desc: "Flower market on Île de la Cité, steps from Sainte-Chapelle.", time: "20 min", address: "Place Louis Lépine, 75004", lat: 48.8554, lng: 2.3459 },
+  { id: 21, name: "Rue Cler", category: "Food", desc: "Classic open-air market street, right in the neighborhood.", time: "30 min", address: "Rue Cler, 75007", lat: 48.8567, lng: 2.3070 },
+  { id: 22, name: "La Grande Épicerie", category: "Food", desc: "Legendary gourmet food hall inside Le Bon Marché, near Square Boucicaut.", time: "30 min", address: "38 Rue de Sèvres, 75007", lat: 48.8503, lng: 2.3247 },
+  { id: 23, name: "Berthillon", category: "Food", desc: "Paris's most famous ice cream, on Île Saint-Louis near Sainte-Chapelle.", time: "20 min", address: "31 Rue Saint-Louis en l'Île, 75004", lat: 48.8514, lng: 2.3567 },
 ];
 
 const CATEGORY_COLORS = {
