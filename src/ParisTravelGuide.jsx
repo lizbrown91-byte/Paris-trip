@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { MapPin, Plane, Home, Key, Train, ExternalLink, Clock, Sun, Sunset, StickyNote, ChevronRight } from "lucide-react";
+// Imported so Vite fingerprints it and prefixes the site's base path — a bare
+// "/assets/..." string would 404, since the site is served from /Paris-trip/.
+import sacreCoeurTrain from "./assets/sacre-coeur-train.jpg";
 
 /* ============================================================
    DATA LAYER — edit these objects to update the whole site
@@ -25,10 +28,10 @@ const FLIGHTS = {
   return: {
     label: "Return",
     route: "CDG → ORD",
-    date: "TBD",
-    flightNumber: "TBD",
-    depart: "TBD",
-    arrive: "TBD",
+    date: "Monday, Oct 12, 2026",
+    flightNumber: "AA 151",
+    depart: "7:40 AM (Paris time)",
+    arrive: "11:50 PM Paris time (4:50 PM Central, on landing)",
     confirmation: "",
   },
 };
@@ -51,6 +54,9 @@ const AIRBNB = {
 };
 
 const RESTAURANTS = [
+  { name: "La Parisienne", rating: "4.3", note: "Bakery — right around the corner, award-winning baguettes.", address: "85 Rue Saint-Dominique" },
+  { name: "Le Moulin de la Vierge", rating: "4.2", note: "Bakery — classic old-Paris bakery, great croissants.", address: "64 Rue Saint-Dominique" },
+  { name: "Boulangerie Liberté", rating: "4.2", note: "Bakery — excellent pastries, has seating.", address: "58 Rue Saint-Dominique" },
   { name: "La Charrette à Crêpes", rating: "5.0", note: "Casual crêperie right on the corner.", address: "86 Rue Saint-Dominique" },
   { name: "Vendémiaire", rating: "4.8", note: "Elegant French brasserie, ~5 min walk.", address: "54 Bd de la Tour-Maubourg" },
   { name: "Kozy École Militaire", rating: "4.9", note: "All-day brunch & coffee.", address: "55 Rue Cler" },
@@ -79,7 +85,7 @@ const ITINERARY = [
     date: "Oct 7",
     morning: "Eiffel Tower & Champ de Mars",
     afternoon: "Catacombs",
-    notes: "Book Eiffel Tower & Catacombs tickets in advance.",
+    notes: "Eiffel Tower & Catacombs tickets booked in advance.",
     image: "https://images.unsplash.com/photo-1616769689599-5b281aa03daf?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -87,7 +93,7 @@ const ITINERARY = [
     date: "Oct 8",
     morning: "Luxembourg Gardens",
     afternoon: "Musée de l'Orangerie + Tuileries Garden",
-    notes: "Book museum tickets in advance. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina.",
+    notes: "Museum tickets booked in advance. Taking the Red Hop On Bus to get around. Other spots to see: Sainte-Chapelle, Shakespeare & Co, Angelina.",
     image: "https://images.unsplash.com/photo-1756239502220-4679325de757?q=80&w=1200&auto=format&fit=crop",
   },
   {
@@ -109,10 +115,10 @@ const ITINERARY = [
   {
     day: "Sunday",
     date: "Oct 11",
-    morning: "Sacré-Cœur & the little train",
+    morning: "Sacré-Cœur & the little train of Montmartre",
     afternoon: "Open",
     notes: "Pack up — we leave Monday morning.",
-    image: "https://images.unsplash.com/photo-1583742320776-49b69b87cdf6?q=80&w=1200&auto=format&fit=crop",
+    image: sacreCoeurTrain,
   },
   {
     day: "Monday",
